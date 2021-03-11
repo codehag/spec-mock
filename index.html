@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <title>
+      TC39 – Specifying JavaScript.
+    </title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=67b7cb537c6921fd462c10a16df1dddc5a29d9d5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script defer src="/assets/js/main.js?v=67b7cb537c6921fd462c10a16df1dddc5a29d9d5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body class="no-js">
+    <header class="page-header container">
+  <div class="logo-box">
+    <a href="">
+      <img src="assets/img/logo.svg" alt="TC39" />
+    </a>
+  </div>
+  <nav class="page-menu">
+    <a href="#content" class="skip-menu">
+  Skip to content
+</a>
+<a href="#menu" class="menu-toggle" tabindex="-1">
+  <span class="menu-toggle-text">
+    
+  </span>
+</a>
+<ul class="menu" id="menu">
+  <li class="menu-item has-submenu">
+    <a class="menu-link">
+      TC39
+    </a>
+    <button class="submenu-toggle" tabindex="-1">
+      <span class="sr-only">
+        Toggle sub-menu for TC39
+      </span>
+    </button>
+    <ul class="submenu">
+      <li class="submenu-item">
+        <a class="menu-link" href="https://github.com/tc39/agendas/blob/master/2021/01.md">
+          Upcoming Agenda
+        </a>
+      </li>
+      <li class="submenu-item">
+        <a class="menu-link" href="https://github.com/tc39/notes/tree/master/meetings/2020-11">
+          Recent Meeting Notes
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="menu-item has-submenu">
+    <a class="menu-link">
+      Specs
+    </a>
+    <button class="submenu-toggle" tabindex="-1">
+      <span class="sr-only">
+        Toggle sub-menu for specs
+      </span>
+    </button>
+    <ul class="submenu">
+      <li class="submenu-item">
+        <a class="menu-link" href="https://github.com/tc39/proposals">
+          Active Proposals
+        </a>
+      </li>
+      <li class="submenu-item">
+        <a class="menu-link" href="https://tc39.es/ecma262/">
+          ECMA-262, ECMAScript
+        </a>
+      </li>
+      <li class="submenu-item">
+        <a class="menu-link" href="https://tc39.es/ecma402/">
+          ECMA-402, Intl API
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="menu-item has-submenu">
+    <a class="menu-link">
+      Contribute
+    </a>
+    <button class="submenu-toggle" tabindex="-1">
+      <span class="sr-only">
+        Toggle sub-menu for Contribute
+      </span>
+    </button>
+    <ul class="submenu">
+      <li class="submenu-item">
+        <a class="menu-link" href='https://github.com/tc39/ecma262/blob/master/CONTRIBUTING.md'>
+          Contribute to Proposals
+        </a>
+      </li>
+      <li class="submenu-item">
+        <a class="menu-link" href='https://github.com/tc39/test262/blob/master/CONTRIBUTING.md'>
+          Contribute to Tests
+        </a>
+      </li>
+      <li class="submenu-item">
+        <a class="menu-link" href="https://timothygu.me/es-howto/">
+          Reading the Spec
+        </a>
+      </li>
+      <li class="submenu-item">
+        <a class="menu-link" href='https://es.discourse.group/'>
+          Join the Discourse
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="menu-item">
+    <a href="#proposals" class="menu-link">
+      State of Proposals
+    </a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+    <main class="container">
+    <h1 id="content" class="page-title">Specifying JavaScript.</h1>
+    <section class="main-content">
+      <section>
+  <div class="g-row intro">
+    <div class="g-col-4">
+      <h2 class="section-headline">TC39</h2>
+      <p>
+        Ecma International's TC39 is a group of JavaScript developers, implementers, academics, and more, collaborating with the community to maintain and evolve the definition of JavaScript.
+      </p><p>
+        We are part of <br/> <a class="ecma-logo-box" href="https://www.ecma-international.org/"> <img src="assets/img/ecma-logo.svg" alt="Ecma International" /> </a>
+      </p>
+    </div>
+    <div class="g-col-4">
+      <h2 class="section-headline">Contribute</h2>
+      <p>
+       TC39 welcomes contributions from the JavaScript community, whether it is feedback on existing proposals, improved documentation, testing, implementations, or even language feature ideas. See our <a href="https://github.com/tc39/ecma262/blob/master/CONTRIBUTING.md">contributor guide</a> for details.
+      </p>
+      <p>
+       To participate in TC39 meetings as a member, <a href="https://ecma-international.org/memento/join.htm">join Ecma</a>.
+      </p>
+    </div>
+    <div class="g-col-4">
+      <h2 class="section-headline">Specs</h2>
+      <p>
+       We develop the JavaScript (formally, ECMAScript) specification <a href="https://github.com/tc39/ecma262/">on GitHub</a> and meet every two months to discuss proposals. To learn more about the process, please take a look at the <a href="https://tc39.es/process-document/">five stages</a> for new <a href="https://github.com/tc39/proposals/">language feature proposals</a>. See our <a href="https://github.com/tc39/agendas/">meeting agendas</a> and <a href="https://github.com/tc39/notes/">minutes</a> to learn more.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+      <article>
+  <h2 id="proposals" class="section-headline text-end">
+    State of Proposals
+  </h2>
+  <div class="featurelist">
+    <h3>
+      Current Candidates for the Specification
+    </h3>
+    <i class="featurelist__desc">
+      This section features proposals that are in Stage 3 of <a href="https://tc39.es/process-document/">our process</a>, which means they are close to completion.
+    </i>
+    <details class="featurelist__legend">
+      <summary><strong>
+          How to read the proposals list
+        </strong></summary>
+      <p>
+      Each proposal has links out to other resources. The tags identify the following attributes. Below you will find a table with example tags and their meanings. All tags have hover text if you need help getting oriented.
+      </p>
+
+      <strong>
+        Types of tags and what they mean
+      </strong>
+      <ul class="featurelist__legend__tags">
+          <li>
+            Last Presented:
+            <div class="featurelist__item__presented featurelist__item__tag">
+              <a href="" title='Notes from most recent presentation'>December 2018</a>
+            </div>
+          </li>
+          <li>
+            Available Tests:
+            <div class="featurelist__item__tests featurelist__item__tag">
+              <a title='Patch introducing tests in test262 repository'>
+                Tests
+              </a>
+            </div>
+          </li>
+          <li>
+            Specification Text:
+            <div class="featurelist__item__spec featurelist__item__tag">
+              <a title='Read the specification text'>
+                Specification
+              </a>
+            </div>
+          </li>
+      </ul>
+    </details>
+  </div>
+</article>
+
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-regexp-legacy-features">Legacy RegExp features in JavaScript</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2017-05/may-25.md#15ia-regexp-legacy-features-for-stage-3" title='Notes from most recent presentation'>May&#xA0;2017</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pull/2650" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        
+        
+        Author:
+        
+        Claude Pache
+        
+        
+        |
+        
+        Champions:
+        
+        Mark Miller, Claude Pache
+        
+      
+    </div>
+    
+    <div class="featurelist__item__desc">This is a specification draft for the legacy (deprecated) RegExp features in JavaScript, i.e., static properties of the constructor like <code>RegExp.$1</code> as well as the <code>RegExp.prototype.compile</code> method.</div>
+    
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-private-methods">Private instance methods and accessors</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2019-01/jan-30.md#private-fields-and-methods-refresher" title='Notes from most recent presentation'>January&#xA0;2019</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pulls?q=is%3Apr+is%3Aclosed+private+methods" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-private-methods" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        
+        
+        Author:
+        
+        Daniel Ehrenberg
+        
+        
+        |
+        
+        Champions:
+        
+        Daniel Ehrenberg, Kevin Gibbons
+        
+      
+    </div>
+    
+    <div class="featurelist__item__desc">Keeping state and behavior private to a class lets library authors present a clear, stable interface, while changing their code over time behind the scenes.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-private-methods"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-private-methods"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-private-methods"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-private-methods"
+    >
+      <pre><code class="js" tabindex="-1">class Counter extends HTMLElement {
+  #xValue = 0;
+  get #x() { return #xValue; }
+  set #x(value) {
+    this.#xValue = value;
+    window.requestAnimationFrame(this.#render.bind(this));
+  }
+  #clicked() {
+    this.#x++;
+  }
+  constructor() {
+    super();
+    this.onclick = this.#clicked.bind(this);
+  }
+  connectedCallback() { this.#render(); }
+  #render() {
+    this.textContent = this.#x.toString();
+  }
+}
+window.customElements.define(&#x27;num-counter&#x27;, Counter);</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-class-fields">Class Public Instance Fields &amp; Private Instance Fields</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2020-03/march-31.md#add-support-for-optionalchainprivateidentifier-in-class-features-proposals" title='Notes from most recent presentation'>March&#xA0;2019</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pulls?q=is%3Apr+is%3Aclosed+private+fields" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-class-fields" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        
+        
+        Authors:
+        
+        Daniel Ehrenberg, Kevin Gibbons
+        
+        
+        |
+        
+        Champions:
+        
+        Daniel Ehrenberg, Jeff Morrison, Kevin Smith, Kevin Gibbons
+        
+      
+    </div>
+    
+    <div class="featurelist__item__desc">This proposes a combined vision for public fields and private fields, drawing on the earlier Orthogonal Classes and Class Evaluation Order proposals.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-class-fields"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-class-fields"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-class-fields"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-class-fields"
+    >
+      <pre><code class="js" tabindex="-1">class X {
+  #foo;
+  method() {
+    console.log(this.#foo)
+  }
+}</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-static-class-features">Static class fields and private static methods</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2019-01/jan-30.md#private-fields-and-methods-refresher" title='Notes from most recent presentation'>January&#xA0;2019</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pulls?q=is%3Apr+is%3Aclosed+static+fields" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-static-class-features" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        
+        
+        Authors:
+        
+        Daniel Ehrenberg, Kevin Gibbons, Jeff Morrison, Kevin Smith
+        
+        
+        |
+        
+        Champions:
+        
+        Shu-Yu Guo, Daniel Ehrenberg
+        
+      
+    </div>
+    
+    <div class="featurelist__item__desc">A proposal to add three features to JavaScript classes, building on the previous class fields and private methods proposals.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-static-class-features"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-static-class-features"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-static-class-features"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-static-class-features"
+    >
+      <pre><code class="js" tabindex="-1">class ColorFinder {
+  static #red = &#x22;#ff0000&#x22;;
+  static #green = &#x22;#00ff00&#x22;;
+  static #blue = &#x22;#0000ff&#x22;;
+
+  static colorName(name) {
+    switch (name) {
+      case &#x22;red&#x22;: return ColorFinder.#red;
+      case &#x22;blue&#x22;: return ColorFinder.#blue;
+      case &#x22;green&#x22;: return ColorFinder.#green;
+      default: throw new RangeError(&#x22;unknown color&#x22;);
+    }
+  }
+
+  // Somehow use colorName
+}</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-hashbang">Hashbang Grammar</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2018-11/nov-28.md#hash-bang-grammar" title='Notes from most recent presentation'>November&#xA0;2018</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pull/2065" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-hashbang" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        Authors and Champions:
+        Bradley Farias
+      
+    </div>
+    
+    <div class="featurelist__item__desc">This proposal is to match de-facto usage in some CLI JS hosts that allow for Shebangs / Hashbang. Such hosts strip the hashbang in order to generate valid JS source texts before passing to JS engines currently. This would unify and standardize how that is done.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-hashbang"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-hashbang"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-hashbang"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-hashbang"
+    >
+      <pre><code class="js" tabindex="-1">#!/usr/bin/env node
+// in the Module Goal
+export {};
+console.log(1);</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-top-level-await">Top-level <code>await</code></a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2019-06/june-6.md#top-level-await-for-stage-3" title='Notes from most recent presentation'>June&#xA0;2019</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pull/2274" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-top-level-await" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        Authors and Champions:
+        Myles Borins
+      
+    </div>
+    
+    <div class="featurelist__item__desc">Top-level <code>await</code> enables modules to act as big async functions. With top-level <code>await</code>, ECMAScript Modules (ESM) can await resources, causing other modules who import them to wait before they start evaluating their body.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-top-level-await"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-top-level-await"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-top-level-await"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-top-level-await"
+    >
+      <pre><code class="js" tabindex="-1">// file.html
+&#x3C;script type=module src=&#x22;a.mjs&#x22;&#x3E;&#x3C;/script&#x3E;
+// a.mjs
+await import(&#x22;./b.mjs&#x22;);
+// b.mjs
+await import(&#x22;./a.mjs&#x22;);</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-regexp-match-indices">RegExp Match Indices</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2019-12/december-3.md#regexp-match-indices-performance-feedback" title='Notes from most recent presentation'>December&#xA0;2019</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pull/2309" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        Authors and Champions:
+        Ron Buckton
+      
+    </div>
+    
+    <div class="featurelist__item__desc">ECMAScript RegExp Match Indicies provide additional information about the start and end indices of captured substrings relative to the start of the input string.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-regexp-match-indices"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-regexp-match-indices"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-regexp-match-indices"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-regexp-match-indices"
+    >
+      <pre><code class="js" tabindex="-1">const re1 = /a+(?&#x3C;Z&#x3E;z)?/;
+// indices are relative to start of the input string:
+const s1 = &#x22;xaaaz&#x22;;
+const m1 = re1.exec(s1);
+m1.indices[0][0] === 1;
+m1.indices[0][1] === 5;
+s1.slice(...m1.indices[0]) === &#x22;aaaz&#x22;;
+m1.indices[1][0] === 4;
+m1.indices[1][1] === 5;
+s1.slice(...m1.indices[1]) === &#x22;z&#x22;;
+m1.indices.groups[&#x22;Z&#x22;][0] === 4;
+m1.indices.groups[&#x22;Z&#x22;][1] === 5;
+s1.slice(...m1.indices.groups[&#x22;Z&#x22;]) === &#x22;z&#x22;;
+// capture groups that are not matched return &#x60;undefined&#x60;:
+const m2 = re1.exec(&#x22;xaaay&#x22;);
+m2.indices[1] === undefined;
+m2.indices.groups[&#x22;Z&#x22;] === undefined;</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-atomics-wait-async"><code>Atomics.waitAsync</code></a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2019-12/december-4.md#atomicswaitasync-for-stage-3" title='Notes from most recent presentation'>December&#xA0;2019</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/issues/2511" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-atomics-wait-async" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        
+        
+        Author:
+        
+        Lars Hansen
+        
+        
+        |
+        
+        Champions:
+        
+        Shu-yu Guo, Lars Hansen
+        
+      
+    </div>
+    
+    <div class="featurelist__item__desc">A proposal for an &ldquo;asynchronous atomic wait&rdquo; for ECMAScript, primarily for use in agents that are not allowed to block.</div>
+    
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-relative-indexing-method"><code>.at()</code></a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="at" title='Notes from most recent presentation'>September&#xA0;2020</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__tests featurelist__item__tag">
+              <a href="https://github.com/tc39/test262/pull/2812" title=''>
+                Tests
+              </a>
+            </li>
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-relative-indexing-method" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        Authors and Champions:
+        Shu-yu Guo, Tab Atkins
+      
+    </div>
+    
+    <div class="featurelist__item__desc">A proposal to add a <code>.at()</code> method to all the basic indexable classes (<code>Array</code>, <code>String</code>, <code>TypedArray</code>).</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-relative-indexing-method"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-relative-indexing-method"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-relative-indexing-method"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-relative-indexing-method"
+    >
+      <pre><code class="js" tabindex="-1">var list = ["apple", "orange", "banana"];
+list.at(-1) // banana, using negative index
+list.at(0)  // apple
+list.at(1)  // orange
+list.at(2)  // banana</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-import-assertions">Import Assertions</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="import-assertions" title='Notes from most recent presentation'>September&#xA0;2020</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-import-assertions" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        Authors and Champions:
+        Myles Borins, Sven Sauleau, Dan Clark, Daniel Ehrenberg
+      
+    </div>
+    
+    <div class="featurelist__item__desc">A proposal for syntax to import ES modules with assertions.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-import-assertions"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-import-assertions"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-import-assertions"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-import-assertions"
+    >
+      <pre><code class="js" tabindex="-1">new Worker(&#x22;foo.wasm&#x22;, { type: &#x22;module&#x22;, assert: { type: &#x22;webassembly&#x22; } });</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-json-modules">JSON Modules</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2021-01/jan-25.md#json-modules-for-stage-3" title='Notes from most recent presentation'>January&#xA0;2021</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-json-modules" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        Authors and Champions:
+        Sven Sauleau, Daniel Ehrenberg, Myles Borins, Dan Clark
+      
+    </div>
+    
+    <div class="featurelist__item__desc">Proposal to import JSON files as modules.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-json-modules"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-json-modules"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-json-modules"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-json-modules"
+    >
+      <pre><code class="js" tabindex="-1">import json from &#x22;./foo.json&#x22; assert { type: &#x22;json&#x22; };</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<article class="featurelist__item">
+  <div class="featurelist__item__intro">
+    <header class="g-row">
+      <h4 class="featurelist__item__title flex-grow">
+        <a href="https://github.com/tc39/proposal-private-fields-in-in">Ergonomic Brand Checks</a>
+      </h4>
+      <div class="featurelist__item__tags">
+        <ul class="featurelist__item__status featurelist__item__tags">
+          
+          
+          <li class="featurelist__item__presented featurelist__item__tag"><a href="https://github.com/tc39/notes/blob/master/meetings/2021-01/jan-27.md#ergonomic-brand-checks" title='Notes from most recent presentation'>January&#xA0;2021</a></li>
+          
+          
+          
+          
+            <li class="featurelist__item__spec featurelist__item__tag">
+              <a href="https://tc39.es/proposal-private-fields-in-in" title='Read the specification text'>
+                Specification
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </header>
+    <div class="featurelist__item__author">
+      
+        Authors and Champions:
+        Jordan Harband
+      
+    </div>
+    
+    <div class="featurelist__item__desc">EcmaScript proposal to provide brand checks without exceptions.</div>
+    
+    
+    <div
+      class="featurelist__item__example"
+      aria-controls="example-proposal-private-fields-in-in"
+      aria-expanded="false"
+      role="button"
+      tabindex="0"
+      id="example-toggle-proposal-private-fields-in-in"
+    >
+      Show Example
+    </div>
+    <section
+      class="featurelist__item__info"
+      id="example-proposal-private-fields-in-in"
+      aria-hidden="true"
+      aria-labelledby="example-toggle-proposal-private-fields-in-in"
+    >
+      <pre><code class="js" tabindex="-1">class C {
+  #brand;
+  #method() {}
+  get #getter() {}
+  static isC(obj) {
+    return #brand in obj && #method in obj && #getter in obj;
+  }
+}</code></pre>
+    </section>
+    
+  </div>
+</article>
+
+<section class="featurelist__more">
+  <a href="https://github.com/tc39/proposals">
+    See proposals in all stages
+  </a>
+</section>
+
+    </section>
+    </main>
+    <footer class="page-footer container">
+  <section class="synopsis grid-container">
+    <div class="g-row">
+      <div class="g-col-3">
+        <h3 id="connect-label">
+          Connect
+        </h3>
+        <ul class="connect" aria-labelledby="connect-label">
+          <li><a href="https://es.discourse.group" target="_blank">
+            <span class="icon"><svg height="24" aria-label="Discourse" class="octicon octicon-comment-discussion" viewBox="0 0 24 24" version="1.1" width="24" role="img"><path fill-rule="evenodd" d="M1.75 1A1.75 1.75 0 000 2.75v9.5C0 13.216.784 14 1.75 14H3v1.543a1.457 1.457 0 002.487 1.03L8.061 14h6.189A1.75 1.75 0 0016 12.25v-9.5A1.75 1.75 0 0014.25 1H1.75zM1.5 2.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v9.5a.25.25 0 01-.25.25h-6.5a.75.75 0 00-.53.22L4.5 15.44v-2.19a.75.75 0 00-.75-.75h-2a.25.25 0 01-.25-.25v-9.5z"></path><path d="M22.5 8.75a.25.25 0 00-.25-.25h-3.5a.75.75 0 010-1.5h3.5c.966 0 1.75.784 1.75 1.75v9.5A1.75 1.75 0 0122.25 20H21v1.543a1.457 1.457 0 01-2.487 1.03L15.939 20H10.75A1.75 1.75 0 019 18.25v-1.465a.75.75 0 011.5 0v1.465c0 .138.112.25.25.25h5.5a.75.75 0 01.53.22l2.72 2.72v-2.19a.75.75 0 01.75-.75h2a.25.25 0 00.25-.25v-9.5z"></path></svg></span>
+            <span>Discourse</span>
+          </a></li>
+          <li><a href="https://github.com/tc39" target="_blank">
+            <span class="icon"><svg height="24" aria-label="GitHub" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" role="img"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg></span>
+            <span>GitHub</span>
+          </a></li>
+          <li><a href="http://twitter.com/tc39" target="_blank">
+            <span class="icon"><svg height="24" aria-label="Twitter" class="octicon octicon-mark-twitter" viewBox="0 0 16 16" version="1.1" width="24" role="img"><path d="m14.115 3.3111c0.67809-0.42788 1.1984-1.1064 1.4425-1.9146-0.63482 0.39718-1.3364 0.68442-2.0849 0.83993-0.59725-0.67353-1.4509-1.0935-2.3956-1.0935-1.8126 0-3.2814 1.5501-3.2814 3.4617 0 0.27139 0.027277 0.53585 0.083581 0.78842-2.7272-0.14461-5.1455-1.5214-6.7655-3.6172-0.28268 0.51307-0.44421 1.1074-0.44421 1.7413 0 1.2005 0.57944 2.2603 1.4603 2.8823-0.53812-0.017828-1.0443-0.17532-1.4876-0.43284v0.04259c0 1.6779 1.1307 3.0774 2.6343 3.3944-0.27611 0.081219-0.56535 0.12183-0.86588 0.12183-0.2113 0-0.41791-0.020801-0.617-0.061409 0.41697 1.3748 1.6294 2.3772 3.0662 2.4039-1.1241 0.92906-2.5394 1.4817-4.0767 1.4817-0.26484 0-0.52685-0.01486-0.78323-0.04755 1.4528 0.98156 3.178 1.555 5.0318 1.555 6.0386 0 9.3387-5.2753 9.3387-9.8503 0-0.15056-0.0018-0.30012-0.0084-0.4477 0.64147-0.48831 1.1993-1.0984 1.6379-1.7928-0.5888 0.27536-1.2218 0.46157-1.8849 0.54477z"/></svg></span>
+            <span>Twitter</span>
+          </a></li>
+        </ul>
+      </div>
+      <div class="g-col-3">
+        <h3 id="standards-label">
+          Standards
+        </h3>
+        <ul aria-labelledby="standards-label">
+          <li><a href="https://tc39.es/ecma262">ECMA-262, ECMAScript</a></li>
+          <li><a href="https://tc39.es/ecma402">ECMA-402, Intl API</a></li>
+        </ul>
+      </div>
+      <div class="g-col-3">
+        <h3 id="proposals-label">
+          Proposals
+        </h3>
+        <ul aria-labelledby="proposals-label">
+          <li><a href="https://github.com/tc39/proposals/blob/HEAD/stage-0-proposals.md#stage-0-proposals">Stage 0</a></li>
+          <li><a href="https://github.com/tc39/proposals/blob/HEAD/stage-1-proposals.md#stage-1-proposals">Stage 1</a></li>
+          <li><a href="https://github.com/tc39/proposals/blob/HEAD/README.md#stage-2">Stage 2</a></li>
+          <li><a href="https://github.com/tc39/proposals/blob/HEAD/README.md#stage-3">Stage 3</a></li>
+          <li><a href="https://github.com/tc39/proposals/blob/HEAD/finished-proposals.md#finished-proposals">Stage 4</a></li>
+        </ul>
+      </div>
+      <div class="g-col-3">
+        <h3 id="contribute-label">
+          Contribute
+        </h3>
+        <ul aria-labelledby="contribute-label">
+          <li><a href='https://github.com/tc39/ecma262/blob/master/CONTRIBUTING.md'>
+              Contribute to Proposals
+            </a></li>
+          <li><a href='https://github.com/tc39/test262/blob/master/CONTRIBUTING.md'>
+              Contribute to Tests
+            </a></li>
+          <li><a href="https://timothygu.me/es-howto" target="_blank">
+              Reading the Spec
+            </a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="grid-container">
+    <div class="grid-start">
+      <span>
+         We are looking for feedback.
+         <br />
+         Please <a href="https://github.com/tc39/tc39.github.io/issues/new" target="_blank">open an issue</a> in <a href="https://github.com/tc39/tc39.github.io" target="_blank">our site repository</a>.
+      </span>
+    </div>
+    <nav class="grid-end" aria-label="site info">
+      <ul class="pipe-nav">
+        <li><a href="https://tc39.es/archives">
+            Archives
+          </a></li>
+        <li><a href='https://tc39.es/process-document'>
+            Process
+          </a></li>
+        <li><a href='https://tc39.es/code-of-conduct'>
+            Code of Conduct
+          </a></li>
+      </ul>
+      <span>&copy; Ecma International</span>
+    </nav>
+  </div>
+</footer>
+
+    <img class="hidden" src="https://d3nrsflo8ae6b5.cloudfront.net/1x1.png" alt="pixel" />
+  </body>
+</html>
